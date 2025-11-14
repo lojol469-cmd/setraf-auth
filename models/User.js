@@ -80,9 +80,8 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index pour améliorer les performances
-userSchema.index({ email: 1 });
-userSchema.index({ username: 1 });
+// Les index email et username sont déjà créés via unique: true
+// Pas besoin de les redéclarer ici
 
 // Méthode virtuelle pour vérifier si le compte est verrouillé
 userSchema.virtual('isLocked').get(function() {

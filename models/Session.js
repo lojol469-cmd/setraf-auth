@@ -32,8 +32,8 @@ const sessionSchema = new mongoose.Schema({
 });
 
 // Index pour améliorer les performances
+// refreshToken est déjà indexé via unique: true
 sessionSchema.index({ userId: 1, isValid: 1 });
-sessionSchema.index({ refreshToken: 1 });
 
 const Session = mongoose.model('Session', sessionSchema);
 
